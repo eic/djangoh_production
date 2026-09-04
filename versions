@@ -1,0 +1,15 @@
+DJANGOH 4.6.10
+   ↓
+EIC2020b
+eic-smear BuildTree
+   ↓
+EIC2021a
+TreeToHepMC(..., false)
+   ↓
+HepMC3 Asciiv3
+   ↓
+abconv
+(afterburner v0.2.1)
+-p ip6_hidiv_275x9
+   ↓
+hepmc3.tree.root
