@@ -13,3 +13,6 @@ abconv
 -p ip6_hidiv_275x9
    ↓
 hepmc3.tree.root
+#DJANGOH information for CC DIS including example input cards
+
+https://eic.github.io/software/djangoh.html
