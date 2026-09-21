@@ -1,0 +1,80 @@
+============================================================
+9x275 CC DIS corrected EVGEN production software record
+============================================================
+
+Production physics configuration
+--------------------------------
+Process                  : charged-current DIS
+Beam                     : e- p, 9x275 GeV
+Generator                : DJANGOH 4.6.10
+Radiative corrections    : HERACLES
+Afterburner profile      : ip6_hidiv_275x9
+Detector validation      : epic_craterlake.xml
+
+Conversion environments
+--------------------------------
+eic-smear BuildTree      : EIC2020b
+TreeToHepMC              : EIC2021a
+
+Corrected HepMC filter
+--------------------------------
+Filter source            : rewrite_hepmc_physical_final_prod.cxx
+Final-state definition   : terminal physical particles
+Output transport status  : 1
+Closure warning threshold: 0.1 GeV
+Pathological threshold   : 1.0 GeV
+
+Afterburner
+--------------------------------
+Git commit               : 740f6356225fc81c9baee5c76d6dd19976c99417
+Git description          : v0.2.1
+Afterburner executable   : /w/hallb-scshelf2102/clas12/cpaudel/EIC/afterburner/install_root640/bin/abconv
+
+Afterburner shared-library dependencies:
+	libyaml-cpp.so.0.8 => /opt/local/lib/libyaml-cpp.so.0.8 (0x00007f783c1c7000)
+	libHepMC3.so.4 => /opt/local/lib/libHepMC3.so.4 (0x00007f783c0d9000)
+	libTree.so.6.40 => /opt/local/lib/root/libTree.so.6.40 (0x00007f783bf1b000)
+	libHist.so.6.40 => /opt/local/lib/root/libHist.so.6.40 (0x00007f783ba71000)
+	libCLHEP-2.4.7.2.so => /opt/local/lib/libCLHEP-2.4.7.2.so (0x00007f783b8d0000)
+	libHepMC3search.so.5 => /opt/local/lib/libHepMC3search.so.5 (0x00007f783b8a0000)
+	libHepMC3rootIO.so.3 => /opt/local/lib/libHepMC3rootIO.so.3 (0x00007f783b876000)
+	libgsl.so.28 => /opt/local/lib/libgsl.so.28 (0x00007f783b580000)
+	libgslcblas.so.0 => /opt/local/lib/libgslcblas.so.0 (0x00007f783b539000)
+	libRIO.so.6.40 => /opt/local/lib/root/libRIO.so.6.40 (0x00007f783aaba000)
+	libCore.so.6.40 => /opt/local/lib/root/libCore.so.6.40 (0x00007f783a56d000)
+
+Current validation environment
+--------------------------------
+ePIC release path        : /opt/software/linux-x86_64_v2/epic-26.07.1-ukvzh2wfgryzlmmrapuua3sbt2qdu7qf/share/epic
+ROOT version             : 6.40.04
+ROOTSYS                  : /opt/local
+ROOT executable          : /opt/local/bin/root
+HepMC3 version           : 3.03.00
+HepMC3-config            : /opt/local/bin/HepMC3-config
+npsim executable         : /opt/local/bin/npsim
+npsim version            : 1.8.0
+npsim package path       : /opt/software/linux-x86_64_v2/npsim-1.8.0-ttx6jks6tqoap64xlfjaqdvk2y7v2ecl
+DD4hep version           : 1.37
+DD4hep package path      : /opt/software/linux-x86_64_v2/dd4hep-1.37-fclpxgttxqsei6vhox57zrt44yz4orf4
+Geant4 version           : 11.4.1.east
+Geant4 package path      : /opt/software/linux-x86_64_v2/geant4-11.4.1.east-v73nb5j4nzeuneb6zn67dit55epd2ij6
+Geant4 data version      : 11.4.0
+Python version           : 3.13.13
+CMake version            : cmake version 3.31.11
+C++ compiler             : c++ (Debian 14.2.0-19) 14.2.0
+GCC version              : gcc (Debian 14.2.0-19) 14.2.0
+
+Detector configuration
+--------------------------------
+DETECTOR_PATH            : /opt/software/linux-x86_64_v2/epic-26.07.1-ukvzh2wfgryzlmmrapuua3sbt2qdu7qf/share/epic
+Compact XML              : /opt/software/linux-x86_64_v2/epic-26.07.1-ukvzh2wfgryzlmmrapuua3sbt2qdu7qf/share/epic/epic_craterlake.xml
+Compact XML SHA256       : e7b487c09ea650b6073e1577a7849e64f07cc18811f54cdaf84575a6b956eca6
+
+Repository
+--------------------------------
+Production repo commit   : 9152e3d45bb9cc99368efe08727a8fa796e01225
+Production repo branch   : main
+
+Generated on
+--------------------------------
+2026-09-21T01:29:09-04:00

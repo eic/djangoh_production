@@ -1,0 +1,11 @@
+component	version_or_revision
+DJANGOH	4.6.10
+BuildTree_environment	EIC2020b
+TreeToHepMC_environment	EIC2021a
+HepMC3	3.03.00
+ROOT	6.40.04
+ePIC	26.07.1
+detector	epic_craterlake
+afterburner	v0.2.1
+afterburner_commit	740f6356225fc81c9baee5c76d6dd19976c99417
+afterburner_profile	ip6_hidiv_275x9
