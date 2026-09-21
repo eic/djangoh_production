@@ -62,3 +62,22 @@ No 1k, 5k or 18x275 datasets are included.
 
 - New Mexico State University: cpaudel@nmsu.edu
 - Jefferson Lab: churaman@jlab.org
+## 9x275 GeV CC DIS final-state filtering investigation
+
+Validation of the 9x275 GeV charged-current DIS production identified a loss
+of physical hadrons during the existing transport-preprocessing step. The
+pre-filter HepMC records retain the hadronic final state, while the previous
+status-only filtering can remove terminal hadrons carrying non-status-1
+generator statuses.
+
+A topology-based HepMC3 filtering implementation and corrected samples were
+produced as a validation candidate. All six candidate samples pass the
+event-integrity checks and the 100-event npsim validation.
+
+The implementation is currently under review. The final production workflow
+will also be evaluated in the standard eic-shell environment with the
+supported HepMC3 libraries before assigning a new production release tag.
+
+Detailed validation information is available in:
+
+metadata/physical_final_9x275/
