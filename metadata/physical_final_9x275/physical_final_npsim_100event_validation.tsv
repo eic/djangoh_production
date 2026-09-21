@@ -1,0 +1,7 @@
+sample	input_root	exit_code	events_saved	output_size_bytes	status
+cc_g5_eMinus_pMinus_9x275_q2_1000to3000	/w/hallb-scshelf2102/clas12/cpaudel/EIC/g5_djangoh_test/physical_final_production/9x275/q2binned/cc_g5_eMinus_pMinus_9x275_q2_1000to3000.physical_final.eicsmear.ab640.hepmc3.tree.root	0	100	192284015	PASS
+cc_g5_eMinus_pMinus_9x275_q2_100to1000	/w/hallb-scshelf2102/clas12/cpaudel/EIC/g5_djangoh_test/physical_final_production/9x275/q2binned/cc_g5_eMinus_pMinus_9x275_q2_100to1000.physical_final.eicsmear.ab640.hepmc3.tree.root	0	100	200756511	PASS
+cc_g5_eMinus_pMinus_9x275_q2_3000to9000	/w/hallb-scshelf2102/clas12/cpaudel/EIC/g5_djangoh_test/physical_final_production/9x275/q2binned/cc_g5_eMinus_pMinus_9x275_q2_3000to9000.physical_final.eicsmear.ab640.hepmc3.tree.root	0	100	169833907	PASS
+cc_g5_eMinus_pPlus_9x275_q2_1000to3000	/w/hallb-scshelf2102/clas12/cpaudel/EIC/g5_djangoh_test/physical_final_production/9x275/q2binned/cc_g5_eMinus_pPlus_9x275_q2_1000to3000.physical_final.eicsmear.ab640.hepmc3.tree.root	0	100	213652687	PASS
+cc_g5_eMinus_pPlus_9x275_q2_100to1000	/w/hallb-scshelf2102/clas12/cpaudel/EIC/g5_djangoh_test/physical_final_production/9x275/q2binned/cc_g5_eMinus_pPlus_9x275_q2_100to1000.physical_final.eicsmear.ab640.hepmc3.tree.root	0	100	209206809	PASS
+cc_g5_eMinus_pPlus_9x275_q2_3000to9000	/w/hallb-scshelf2102/clas12/cpaudel/EIC/g5_djangoh_test/physical_final_production/9x275/q2binned/cc_g5_eMinus_pPlus_9x275_q2_3000to9000.physical_final.eicsmear.ab640.hepmc3.tree.root	0	100	183267069	PASS
