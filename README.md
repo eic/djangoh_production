@@ -1,80 +1,110 @@
-# DJANGOH 9x275 Charged-Current DIS Production Inputs
+# DJANGOH4.6.10-4.0
 
-## Release tag
+This release contains the steering and preprocessing configuration for
+polarized charged-current DIS DJANGOH samples at 9x275 GeV and 18x275 GeV.
 
-`DJANGOH4.6.10-2.0`
+## Generator
 
-- Generator: DJANGOH 4.6.10 with HERACLES
-- Steering and preprocessing release: 1.0
-- Beam energy: 9x275 GeV
-- Process: charged-current DIS
+- Generator: DJANGOH/HERACLES 4.6.10
+- Repository release tag: DJANGOH4.6.10-4.0
+- Process: DIS charged current
+- Electron beam: e-
+- Proton polarization samples: pPlus and pMinus
 
-## Included datasets
+## Beam energies and Q2 bins
 
-Exactly six production inputs are included:
+### 9x275 GeV
 
-- eMinus-pPlus, Q2 100 to 1000 GeV2
-- eMinus-pPlus, Q2 1000 to 3000 GeV2
-- eMinus-pPlus, Q2 3000 to 9000 GeV2
-- eMinus-pMinus, Q2 100 to 1000 GeV2
-- eMinus-pMinus, Q2 1000 to 3000 GeV2
-- eMinus-pMinus, Q2 3000 to 9000 GeV2
+- Q2 = 100--1000 GeV^2
+- Q2 = 1000--3000 GeV^2
+- Q2 = 3000--9000 GeV^2
 
-No 1k, 5k or 18x275 datasets are included.
+Steering cards are in:
 
-## Processing chain
+steering_cards/9x275/
 
-1. Generate events using DJANGOH 4.6.10 and HERACLES.
-2. Convert the DJANGOH event output using eic-smear BuildTree.
-3. Convert to HepMC3 using TreeToHepMC.
-5. Retain incoming status-4 beam particles and status-1 final-state particles.
-6. Recompute particle energy from momentum and generated mass.
-7. Skip an event if an unhadronized final-state parton, string or diquark is found.
-8. Apply the EIC afterburner profile `ip6_hidiv_275x9`.
-9. Store the result in `hepmc3.tree.root` format.
-10. Validate 100 events from every production input using npsim and the
-    epic_craterlake detector geometry.
+### 18x275 GeV
 
-## Directory structure
+- Q2 = 100--1000 GeV^2
+- Q2 = 1000--10000 GeV^2
+- Q2 = 10000--100000 GeV^2
 
-`DIS/CC/<polarization>/<release-tag>/9x275/q2_<range>/<filename>`
+Steering cards are in:
 
-## Filename convention
+steering_cards/18x275/
 
-`<release-tag>_<process>_<beam>_q2_<range>_run<index>.hepmc3.tree.root`
+## Preprocessing chain
 
-## Metadata
+DJANGOH evt.dat
+  -> eic-smear BuildTree
+  -> EICTree ROOT
+  -> TreeToHepMC (HepMC3)
+  -> EIC afterburner
+  -> hepmc3ascii2root
+  -> hepmc3.tree.root
 
-- `metadata/datasets.tsv`: dataset event counts, cross sections and paths.
-- `metadata/npsim_100event_validation.tsv`: npsim validation results.
-- `metadata/checksums.sha256`: SHA-256 checksums.
-- `steering_files/9x275/`: DJANGOH steering cards.
-- `scripts/`: filtering, afterburner and validation programs.
+No intermediate transport/status filter is applied between
+TreeToHepMC and the afterburner.
 
-## Repository
+## eic-smear
 
-`https://github.com/churamani100/djangoh_production`
-## Contact
+Base version: eic-smear 1.2.3.
 
-**Churamani Paudel**
+A local numerical safeguard is applied in computeHermesPhiH().
+The cosine argument passed to TMath::ACos is clamped to [-1,1]
+to protect against floating-point excursions such as:
 
-- New Mexico State University: cpaudel@nmsu.edu
-- Jefferson Lab: churaman@jlab.org
-## 9x275 GeV CC DIS final-state filtering investigation
+1.0000000000000002
 
-Validation of the 9x275 GeV charged-current DIS production identified a loss
-of physical hadrons during the existing transport-preprocessing step. The
-pre-filter HepMC records retain the hadronic final state, while the previous
-status-only filtering can remove terminal hadrons carrying non-status-1
-generator statuses.
+which otherwise produce NaN values.
 
-A topology-based HepMC3 filtering implementation and corrected samples were
-produced as a validation candidate. All six candidate samples pass the
-event-integrity checks and the 100-event npsim validation.
+The exact modification is stored in:
 
-The implementation is currently under review. The final production workflow
-will also be evaluated in the standard eic-shell environment with the
-supported HepMC3 libraries before assigning a new production release tag.
+metadata/release_4.0/eic-smear-1.2.3-computeHermesPhiH-clamp.patch
 
-Detailed validation information is available in:
+Additional provenance is stored in:
 
+metadata/release_4.0/eic-smear_provenance.txt
+metadata/release_4.0/software_versions.tsv
+
+## Afterburner
+
+The ROOT-6.40-compatible abconv build was used.
+
+- ROOT: 6.40.04
+- CLHEP: 2.4.7.2
+- 9x275 preset: ip6_hidiv_275x9
+- 18x275 preset: ip6_hidiv_275x18
+
+## HepMC3 ROOT conversion
+
+Final HepMC3 ASCII files are converted using eic/hepmc3ascii2root.
+
+Final filenames follow the epic-prod convention:
+
+<release-tag>_<physics-process>_<energy>_q2_<min>to<max>_run001.hepmc3.tree.root
+
+Example:
+
+DJANGOH4.6.10-4.0_DIS-CC-eMinus-pPlus_9x275_q2_100to1000_run001.hepmc3.tree.root
+
+## 9x275 afterburner QA
+
+Input and afterburned output event counts agree exactly for all six samples:
+
+- pMinus high: 999955 -> 999955; ReaderAscii warnings: 1
+- pMinus low: 499952 -> 499952; ReaderAscii warnings: 2
+- pMinus mid: 499976 -> 499976; ReaderAscii warnings: 3
+- pPlus high: 999949 -> 999949; ReaderAscii warnings: 0
+- pPlus low: 499936 -> 499936; ReaderAscii warnings: 3
+- pPlus mid: 499977 -> 499977; ReaderAscii warnings: 2
+
+Total: 3999745 input events and 3999745 afterburned events.
+
+## 18x275 QA note
+
+The 18x275 samples were converted using the same eic-smear 1.2.3
+phi-fix workflow and the ip6_hidiv_275x18 afterburner preset.
+
+A larger number of HepMC3 ReaderAscii diagnostics was observed in the
+pPlus low-Q2 sample and is being tracked separately as part of production QA.
