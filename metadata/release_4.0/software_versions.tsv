@@ -1,0 +1,8 @@
+component	version	notes
+DJANGOH-HERACLES	4.6.10	release tag DJANGOH4.6.10-4.0
+eic-smear	1.2.3	BuildTree and TreeToHepMC
+eic-smear local patch	1.2.3-phi-fix	computeHermesPhiH acos argument clamped to [-1,1]
+ROOT	6.40.04	used for current preprocessing/afterburner environment
+CLHEP	2.4.7.2	linked by ROOT-6.40 afterburner build
+afterburner	ROOT-6.40 build	9x275 preset ip6_hidiv_275x9; 18x275 preset ip6_hidiv_275x18
+hepmc3ascii2root	current local build	final HepMC3 ASCII to hepmc3.tree.root conversion

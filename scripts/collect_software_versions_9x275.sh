@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -u
 
-OUT=${1:-metadata/physical_final_9x275/software_versions.txt}
+OUT=${1:-metadata/release_4.0/software_versions_9x275.txt}
 
 mkdir -p "$(dirname "$OUT")"
 
@@ -32,7 +32,6 @@ echo
 
 echo "Corrected HepMC filter"
 echo "--------------------------------"
-echo "Filter source            : rewrite_hepmc_physical_final_prod.cxx"
 echo "Final-state definition   : terminal physical particles"
 echo "Output transport status  : 1"
 echo "Closure warning threshold: 0.1 GeV"
