@@ -1,0 +1,14 @@
+Upstream package: eic-smear
+Version: 1.2.3
+Source directory used:
+/w/eic-scshelf2104/users/churaman/IMPACTstudy/ANA/djangoh_QA/eicsmear_djangoh_hack_test/eic-smear-1.2.3
+
+Local preprocessing build:
+/w/eic-scshelf2104/users/churaman/IMPACTstudy/ANA/djangoh_QA/eicsmear_djangoh_hack_test/install-phi-fix
+
+Local modification:
+computeHermesPhiH() protects TMath::ACos from floating-point excursions
+outside [-1,1] by clamping the cosine argument.
+
+Exact patch:
+metadata/release_4.0/eic-smear-1.2.3-computeHermesPhiH-clamp.patch

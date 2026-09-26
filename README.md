@@ -27,7 +27,6 @@ No 1k, 5k or 18x275 datasets are included.
 1. Generate events using DJANGOH 4.6.10 and HERACLES.
 2. Convert the DJANGOH event output using eic-smear BuildTree.
 3. Convert to HepMC3 using TreeToHepMC.
-4. Apply the Barak transport filtering program.
 5. Retain incoming status-4 beam particles and status-1 final-state particles.
 6. Recompute particle energy from momentum and generated mass.
 7. Skip an event if an unhadronized final-state parton, string or diquark is found.
@@ -47,7 +46,6 @@ No 1k, 5k or 18x275 datasets are included.
 ## Metadata
 
 - `metadata/datasets.tsv`: dataset event counts, cross sections and paths.
-- `metadata/barak_filter_manifest.tsv`: filtering and ROOT-entry validation.
 - `metadata/npsim_100event_validation.tsv`: npsim validation results.
 - `metadata/checksums.sha256`: SHA-256 checksums.
 - `steering_files/9x275/`: DJANGOH steering cards.
@@ -80,4 +78,3 @@ supported HepMC3 libraries before assigning a new production release tag.
 
 Detailed validation information is available in:
 
-metadata/physical_final_9x275/
