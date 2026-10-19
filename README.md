@@ -86,7 +86,7 @@ Final filenames follow the epic-prod convention:
 
 Example:
 
-DJANGOH4.6.10-4.0_DIS-CC-eMinus-pPlus_9x275_q2_100to1000_run001.hepmc3.tree.root
+DJANGOH4.6.10-4.0_DIS-CC_9x275_q2_100to1000_run001.hepmc3.tree.root
 
 ## 9x275 afterburner QA
 
